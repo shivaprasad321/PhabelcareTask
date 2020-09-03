@@ -1,0 +1,12 @@
+package com.shivaprasad.phabelcaretask.data.api
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+
+object Coroutines {
+
+    fun main(work: suspend (() -> Unit)) = CoroutineScope(Dispatchers.Main).launch {
+        work()
+    }
+}

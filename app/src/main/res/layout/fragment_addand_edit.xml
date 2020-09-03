@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <!--<variable
+            name="view"
+            type="android.view.View" />-->
+
+        <variable
+            name="entity"
+            type="com.shivaprasad.phabelcaretask.data.entities.ContactDataEntity" />
+
+        <variable
+            name="viewmodel"
+            type="com.shivaprasad.phabelcaretask.ui.home.ContactsViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/name"
+            android:text="@={viewmodel.name, default = Name}"
+            android:layout_margin="@dimen/_20dp"
+            android:textSize="@dimen/_20sp"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/email"
+            android:layout_below="@+id/name"
+            android:text="@={viewmodel.email, default = Email}"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:textSize="@dimen/_20sp"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/email"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:id="@+id/delete"
+                android:text="delete"
+                android:padding="@dimen/_10dp"
+                app:visibility = "@{viewmodel.deletebtn}"
+                android:layout_weight="0.5"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:onClick="@{(view) -> viewmodel.deletData(view,entity)}"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_weight="0.5"
+                android:id="@+id/update"
+                android:text="Update"
+                app:visibility = "@{viewmodel.updatebtn}"
+                android:onClick="@{(view) -> viewmodel.updateData(view,entity)}"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/_10dp"
+                android:layout_below="@id/email"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_weight="0.5"
+                android:id="@+id/add"
+                android:text="Add"
+                app:visibility = "@{viewmodel.addbtn}"
+                android:onClick="@{(view) -> viewmodel.addData(view)}"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/_10dp"
+                android:layout_below="@id/email"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</layout>
