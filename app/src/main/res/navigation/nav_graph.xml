@@ -16,8 +16,14 @@
         android:id="@+id/addandEditFragment"
         android:name="com.shivaprasad.phabelcaretask.ui.home.AddandEditFragment"
         android:label="AddandEditFragment" >
+
         <action
-            android:id="@+id/action_addandEditFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/action_addandEditFragment_pop"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popUpTo="@id/addandEditFragment"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
 </navigation>

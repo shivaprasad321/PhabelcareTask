@@ -73,7 +73,7 @@ class ContactsViewModel @Inject constructor() : ViewModel() {
         Coroutines.main {
             newsRepository.saveEmployeesData(ContactDataEntity(name.value!!, email.value!!))
         }
-        Navigation.findNavController(view).navigate(R.id.action_addandEditFragment_to_listFragment)
+        Navigation.findNavController(view).navigate(R.id.action_addandEditFragment_pop)
     }
 
     fun deletData(view: View, contactDataEntity: ContactDataEntity) {
@@ -81,7 +81,7 @@ class ContactsViewModel @Inject constructor() : ViewModel() {
         Coroutines.main {
             newsRepository.delete(contactDataEntity)
         }
-        Navigation.findNavController(view).navigate(R.id.action_addandEditFragment_to_listFragment)
+        Navigation.findNavController(view).navigate(R.id.action_addandEditFragment_pop)
 
     }
 
@@ -94,7 +94,8 @@ class ContactsViewModel @Inject constructor() : ViewModel() {
             newsRepository.update(contactDataEntity)
         }
 
-        Navigation.findNavController(view).navigate(R.id.action_addandEditFragment_to_listFragment)
+
+        Navigation.findNavController(view).navigate(R.id.action_addandEditFragment_pop)
 
     }
 
